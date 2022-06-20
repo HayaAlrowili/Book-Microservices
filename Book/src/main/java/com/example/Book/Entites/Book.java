@@ -2,26 +2,42 @@ package com.example.Book.Entites;
 import javax.persistence.*;
 
 
-@Entity
-@Table
+
+@Entity  //Entity representing data that can be persisted to the database.
+        //An Entity represents a table stored in a database.
+@Table(name = "My_Books") //we can specify the table name in database using the @Table annotation
 public class Book {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Id // Id annotation defines the primary key.
+    private Long id;
+    @Column( //The @Column annotation has many elements such as  length, updatable, and unique
+            unique = true,
+            length=30,
+            updatable = false
+    )
     private String title;
     private String genre;
+
+    @Column(
+            name = "AUTHOR_NAME",
+            length= 20
+    )
     private String author;
 
-
-    public Book() {
-
+    public Books() {
     }
 
-    public int getId() {
+    public Books(Long id, String title, String genre, String author) {
+        this.id = id;
+        this.title = title;
+        this.genre = genre;
+        this.author = author;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -37,8 +53,8 @@ public class Book {
         return genre;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setGenre(String gener) {
+        this.genre = gener;
     }
 
     public String getAuthor() {
