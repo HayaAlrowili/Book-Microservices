@@ -27,16 +27,16 @@ public class BookControllers {
     public Optional<Book> getEmployee(@PathVariable(name = "bookId") Integer bookId) {
         return bookService.getBook(bookId);
     }
-    @PostMapping(path= "add")
+    @PostMapping
     public void registerNewBook(@RequestBody Book book){
         bookService.addBook(book);
     }
-    @DeleteMapping(path = "delete/{bookId}")
+    @DeleteMapping(path = "{bookId}")
     public void deleteBook(@PathVariable ("bookId") Integer bookId){
         bookService.deleteBook(bookId);
     }
-    @PutMapping(path = "update/{bookId}")
-    public void updateBook(@PathVariable("bookId") Integer bookId , @RequestBody Book book){
+    @PutMapping
+    public void updateBook( @RequestBody Book book){
         bookService.addBook(book);
     }
     @GetMapping(path= "author/{bookId}")

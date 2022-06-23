@@ -28,10 +28,7 @@ public class BookService {
         if(b.isPresent()){
             return b.get().getAuthor() ;
         }else{
-            return "Author or book doesn't exist" ;
+            return "Author book doesn't exist" ;
         }
-
-
     }
 }
-
